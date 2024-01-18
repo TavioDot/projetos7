@@ -21,7 +21,7 @@ jobs:
          outcome: ${{ steps.set-result.outputs.step-result }}
         runs-on: ubuntu-latest
         steps:
-            - name: Pegar codigo
+            - name: Pegar codigo 
               uses: actions/download-artifact@v3
               with:
                 name: ${{ inputs.artifact-name  }}
@@ -30,4 +30,5 @@ jobs:
             - name: Saida de informacao
               run: echo "Deployng & atualizando..." 
             - name: Setar resultado de saida
+              id: set-result
               run: echo "::set-output name=step-result::success"
