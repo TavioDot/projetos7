@@ -68,7 +68,16 @@ jobs:
         needs: build
         uses: ./.github/workflows/reusavel.yml
         with:
-          artifact-name: dist-files
+          artifact-name: dist-files 
+        #secrets:
+         # some-secret: ${{ secrets.some-secret }}
+    print-deply-result:
+      needs: deploy
+      runs-on: ubuntu-latest
+      steps:
+        - name: printar a saida do deploy
+          run: echo "${{ needs.deploy.outputs.result}}"
+
         
     report:
         needs: [lint, deploy]
