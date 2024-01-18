@@ -1,8 +1,21 @@
 name: Deploy Reusavel
-on: workflow_call
+on: 
+    workflow_call:
+        inputs:
+            artifact-name:
+                description: the name of the deployable artifact files
+                required: false
+                default: dist
+                type: string
 jobs: 
     deploy:
         runs-on: ubuntu-latest
         steps:
+            - name: Pegar codigo
+              uses: actions/download-artifact@v3
+              with:
+                name: ${{ inputs.artifact-name  }}
+            - name: list files
+              run: ls
             - name: Saida de informacao
-              run: echo "Deployng & atualizando..."
+              run: echo "Deployng & atualizando..." 
