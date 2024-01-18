@@ -1,0 +1,8 @@
+name: Deploy Reusavel
+on: workflow_call
+jobs: 
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Saida de informacao
+              run: echo "Deployng & atualizando..."
