@@ -30,4 +30,4 @@ jobs:
             - name: Saida de informacao
               run: echo "Deployng & atualizando..." 
             - name: Setar resultado de saida
-              run: echo "::set-output name=step-result::sucess"
+              run: echo "::set-output name=step-result::success"
